@@ -40,6 +40,7 @@ dependencies:
   geocoding: ^4.0.0
   adhan_dart: ^1.2.0
   home_widget: ^0.8.1
+  timezone: ^0.10.1
 
 dev_dependencies:
   flutter_test:

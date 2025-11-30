@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const IslamicApp());
-}
+import 'PrayerCardUI.dart';
 
 // Data model for each feature tile
 class Feature {
@@ -211,19 +209,27 @@ class WelcomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: GridView.builder(
-          // MANDATORY requirement: 2 features per row
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 12.0,
-            mainAxisSpacing: 12.0,
-            childAspectRatio: 0.9, // Adjust height of the card slightly
-          ),
-          itemCount: appFeatures.length,
-          itemBuilder: (context, index) {
-            final feature = appFeatures[index];
-            return FeatureCard(feature: feature);
-          },
+        child: Column(
+          children: [
+            PrayerCardScreen(),
+            SizedBox(height: 12),
+            Expanded(
+              child: GridView.builder(
+                // MANDATORY requirement: 2 features per row
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 12.0,
+                  mainAxisSpacing: 12.0,
+                  childAspectRatio: 0.9, // Adjust height of the card slightly
+                ),
+                itemCount: appFeatures.length,
+                itemBuilder: (context, index) {
+                  final feature = appFeatures[index];
+                  return FeatureCard(feature: feature);
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:timezone/data/latest.dart' as tz;
 import 'welcome_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  tz.initializeTimeZones();
   runApp(const MyApp());
 }
 
